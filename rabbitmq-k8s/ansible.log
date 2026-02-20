@@ -1,0 +1,355 @@
+2026-02-20 11:49:36,241 p=5160 u=nour n=ansible | ERROR! 'kubernetes.core.helm_repository' is not a valid attribute for a Play
+
+The error appears to be in '/home/nour/rabbitmq-k8s/install-rabbit-operator.yml': line 1, column 3, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+
+- name: Add RabbitMQ Helm repo
+  ^ here
+
+2026-02-20 11:50:51,410 p=5203 u=nour n=ansible | ERROR! the field 'hosts' is required but was not set
+2026-02-20 11:51:30,989 p=5251 u=nour n=ansible | PLAY [Install RabbitMQ Operator] ************************************************************************************************************************
+2026-02-20 11:51:31,276 p=5251 u=nour n=ansible | TASK [Add RabbitMQ Helm repo] ***************************************************************************************************************************
+2026-02-20 11:51:33,152 p=5251 u=nour n=ansible | [WARNING]: Platform linux on host k8s-master-01 is using the discovered Python interpreter at /usr/bin/python3.10, but future installation of another
+Python interpreter could change the meaning of that path. See https://docs.ansible.com/ansible-core/2.17/reference_appendices/interpreter_discovery.html
+for more information.
+
+2026-02-20 11:51:33,153 p=5251 u=nour n=ansible | fatal: [k8s-master-01]: FAILED! => {"ansible_facts": {"discovered_interpreter_python": "/usr/bin/python3.10"}, "changed": false, "msg": "Failed to find required executable \"helm\" in paths: /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin"}
+2026-02-20 11:51:33,153 p=5251 u=nour n=ansible | PLAY RECAP **********************************************************************************************************************************************
+2026-02-20 11:51:33,154 p=5251 u=nour n=ansible | k8s-master-01              : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2026-02-20 11:55:47,684 p=5462 u=nour n=ansible | PLAY [Install RabbitMQ Operator] ************************************************************************************************************************
+2026-02-20 11:55:47,691 p=5462 u=nour n=ansible | TASK [Download Helm] ************************************************************************************************************************************
+2026-02-20 11:55:54,695 p=5462 u=nour n=ansible | [WARNING]: Platform linux on host k8s-master-01 is using the discovered Python interpreter at /usr/bin/python3.10, but future installation of another
+Python interpreter could change the meaning of that path. See https://docs.ansible.com/ansible-core/2.17/reference_appendices/interpreter_discovery.html
+for more information.
+
+2026-02-20 11:55:54,695 p=5462 u=nour n=ansible | changed: [k8s-master-01]
+2026-02-20 11:55:54,710 p=5462 u=nour n=ansible | TASK [Extract Helm] *************************************************************************************************************************************
+2026-02-20 11:55:57,142 p=5462 u=nour n=ansible | changed: [k8s-master-01]
+2026-02-20 11:55:57,174 p=5462 u=nour n=ansible | TASK [Move Helm binary] *********************************************************************************************************************************
+2026-02-20 11:55:59,551 p=5462 u=nour n=ansible | changed: [k8s-master-01]
+2026-02-20 11:55:59,554 p=5462 u=nour n=ansible | TASK [Add RabbitMQ Helm repo] ***************************************************************************************************************************
+2026-02-20 11:56:00,492 p=5462 u=nour n=ansible | fatal: [k8s-master-01]: FAILED! => {"changed": false, "command": "/usr/local/bin/helm repo add rabbitmq https://charts.rabbitmq.com", "msg": "Failure when executing Helm command. Exited 1.\nstdout: \nstderr: Error: looks like \"https://charts.rabbitmq.com\" is not a valid chart repository or cannot be reached: Get \"https://charts.rabbitmq.com/index.yaml\": dial tcp: lookup charts.rabbitmq.com on 127.0.0.53:53: no such host\n", "stderr": "Error: looks like \"https://charts.rabbitmq.com\" is not a valid chart repository or cannot be reached: Get \"https://charts.rabbitmq.com/index.yaml\": dial tcp: lookup charts.rabbitmq.com on 127.0.0.53:53: no such host\n", "stderr_lines": ["Error: looks like \"https://charts.rabbitmq.com\" is not a valid chart repository or cannot be reached: Get \"https://charts.rabbitmq.com/index.yaml\": dial tcp: lookup charts.rabbitmq.com on 127.0.0.53:53: no such host"], "stdout": "", "stdout_lines": []}
+2026-02-20 11:56:00,493 p=5462 u=nour n=ansible | PLAY RECAP **********************************************************************************************************************************************
+2026-02-20 11:56:00,494 p=5462 u=nour n=ansible | k8s-master-01              : ok=3    changed=3    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2026-02-20 12:02:17,862 p=6851 u=nour n=ansible | PLAY [Install RabbitMQ Operator] ************************************************************************************************************************
+2026-02-20 12:02:17,872 p=6851 u=nour n=ansible | TASK [Download Helm] ************************************************************************************************************************************
+2026-02-20 12:02:20,964 p=6851 u=nour n=ansible | [WARNING]: Platform linux on host k8s-master-01 is using the discovered Python interpreter at /usr/bin/python3.10, but future installation of another
+Python interpreter could change the meaning of that path. See https://docs.ansible.com/ansible-core/2.17/reference_appendices/interpreter_discovery.html
+for more information.
+
+2026-02-20 12:02:20,964 p=6851 u=nour n=ansible | ok: [k8s-master-01]
+2026-02-20 12:02:20,966 p=6851 u=nour n=ansible | TASK [Extract Helm] *************************************************************************************************************************************
+2026-02-20 12:02:22,704 p=6851 u=nour n=ansible | ok: [k8s-master-01]
+2026-02-20 12:02:22,707 p=6851 u=nour n=ansible | TASK [Move Helm binary] *********************************************************************************************************************************
+2026-02-20 12:02:23,363 p=6851 u=nour n=ansible | ok: [k8s-master-01]
+2026-02-20 12:02:23,366 p=6851 u=nour n=ansible | TASK [Add RabbitMQ Helm repo] ***************************************************************************************************************************
+2026-02-20 12:02:24,351 p=6851 u=nour n=ansible | fatal: [k8s-master-01]: FAILED! => {"changed": false, "command": "/usr/local/bin/helm repo add rabbitmq https://rabbitmq.github.io/helm-charts", "msg": "Failure when executing Helm command. Exited 1.\nstdout: \nstderr: Error: looks like \"https://rabbitmq.github.io/helm-charts\" is not a valid chart repository or cannot be reached: failed to fetch https://rabbitmq.github.io/helm-charts/index.yaml : 404 Not Found\n", "stderr": "Error: looks like \"https://rabbitmq.github.io/helm-charts\" is not a valid chart repository or cannot be reached: failed to fetch https://rabbitmq.github.io/helm-charts/index.yaml : 404 Not Found\n", "stderr_lines": ["Error: looks like \"https://rabbitmq.github.io/helm-charts\" is not a valid chart repository or cannot be reached: failed to fetch https://rabbitmq.github.io/helm-charts/index.yaml : 404 Not Found"], "stdout": "", "stdout_lines": []}
+2026-02-20 12:02:24,353 p=6851 u=nour n=ansible | PLAY RECAP **********************************************************************************************************************************************
+2026-02-20 12:02:24,354 p=6851 u=nour n=ansible | k8s-master-01              : ok=3    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2026-02-20 12:12:02,876 p=7272 u=nour n=ansible | PLAY [Install RabbitMQ Operator] ************************************************************************************************************************
+2026-02-20 12:12:02,889 p=7272 u=nour n=ansible | TASK [Download Helm] ************************************************************************************************************************************
+2026-02-20 12:12:04,540 p=7272 u=nour n=ansible | [WARNING]: Platform linux on host k8s-master-01 is using the discovered Python interpreter at /usr/bin/python3.10, but future installation of another
+Python interpreter could change the meaning of that path. See https://docs.ansible.com/ansible-core/2.17/reference_appendices/interpreter_discovery.html
+for more information.
+
+2026-02-20 12:12:04,540 p=7272 u=nour n=ansible | ok: [k8s-master-01]
+2026-02-20 12:12:04,542 p=7272 u=nour n=ansible | TASK [Extract Helm] *************************************************************************************************************************************
+2026-02-20 12:12:06,205 p=7272 u=nour n=ansible | ok: [k8s-master-01]
+2026-02-20 12:12:06,208 p=7272 u=nour n=ansible | TASK [Move Helm binary] *********************************************************************************************************************************
+2026-02-20 12:12:06,854 p=7272 u=nour n=ansible | ok: [k8s-master-01]
+2026-02-20 12:12:06,857 p=7272 u=nour n=ansible | TASK [Add Bitnami Helm repo] ****************************************************************************************************************************
+2026-02-20 12:12:22,588 p=7272 u=nour n=ansible | changed: [k8s-master-01]
+2026-02-20 12:12:22,605 p=7272 u=nour n=ansible | TASK [Install RabbitMQ Cluster Operator] ****************************************************************************************************************
+2026-02-20 12:12:23,183 p=7272 u=nour n=ansible | fatal: [k8s-master-01]: FAILED! => {"changed": false, "command": ["/usr/local/bin/helm", "list", "--output=yaml", "--filter", "rabbitmq-operator"], "msg": "Failure when executing Helm command. Exited 1.\nstdout: \nstderr: Error: Kubernetes cluster unreachable: Get \"http://localhost:8080/version\": dial tcp 127.0.0.1:8080: connect: connection refused\n", "stderr": "Error: Kubernetes cluster unreachable: Get \"http://localhost:8080/version\": dial tcp 127.0.0.1:8080: connect: connection refused\n", "stderr_lines": ["Error: Kubernetes cluster unreachable: Get \"http://localhost:8080/version\": dial tcp 127.0.0.1:8080: connect: connection refused"], "stdout": "", "stdout_lines": []}
+2026-02-20 12:12:23,184 p=7272 u=nour n=ansible | PLAY RECAP **********************************************************************************************************************************************
+2026-02-20 12:12:23,184 p=7272 u=nour n=ansible | k8s-master-01              : ok=4    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2026-02-20 12:16:23,725 p=7993 u=nour n=ansible | PLAY [Install RabbitMQ Operator] ************************************************************************************************************************
+2026-02-20 12:16:23,734 p=7993 u=nour n=ansible | TASK [Download Helm] ************************************************************************************************************************************
+2026-02-20 12:16:25,372 p=7993 u=nour n=ansible | [WARNING]: Platform linux on host k8s-master-01 is using the discovered Python interpreter at /usr/bin/python3.10, but future installation of another
+Python interpreter could change the meaning of that path. See https://docs.ansible.com/ansible-core/2.17/reference_appendices/interpreter_discovery.html
+for more information.
+
+2026-02-20 12:16:25,373 p=7993 u=nour n=ansible | ok: [k8s-master-01]
+2026-02-20 12:16:25,375 p=7993 u=nour n=ansible | TASK [Extract Helm] *************************************************************************************************************************************
+2026-02-20 12:16:27,048 p=7993 u=nour n=ansible | ok: [k8s-master-01]
+2026-02-20 12:16:27,055 p=7993 u=nour n=ansible | TASK [Move Helm binary] *********************************************************************************************************************************
+2026-02-20 12:16:27,700 p=7993 u=nour n=ansible | ok: [k8s-master-01]
+2026-02-20 12:16:27,703 p=7993 u=nour n=ansible | TASK [Add Bitnami Helm repo] ****************************************************************************************************************************
+2026-02-20 12:16:28,269 p=7993 u=nour n=ansible | ok: [k8s-master-01]
+2026-02-20 12:16:28,272 p=7993 u=nour n=ansible | TASK [Install RabbitMQ Cluster Operator] ****************************************************************************************************************
+2026-02-20 12:16:28,941 p=7993 u=nour n=ansible | An exception occurred during task execution. To see the full traceback, use -vvv. The error was: FileNotFoundError: [Errno 2] No such file or directory: '/root/.kube/config'
+2026-02-20 12:16:28,942 p=7993 u=nour n=ansible | fatal: [k8s-master-01]: FAILED! => {"changed": false, "module_stderr": "Shared connection to 192.168.56.7 closed.\r\n", "module_stdout": "Traceback (most recent call last):\r\n  File \"/home/ansible-admin/.ansible/tmp/ansible-tmp-1771589788.3058138-8251-264430494073827/AnsiballZ_helm.py\", line 107, in <module>\r\n    _ansiballz_main()\r\n  File \"/home/ansible-admin/.ansible/tmp/ansible-tmp-1771589788.3058138-8251-264430494073827/AnsiballZ_helm.py\", line 99, in _ansiballz_main\r\n    invoke_module(zipped_mod, temp_path, ANSIBALLZ_PARAMS)\r\n  File \"/home/ansible-admin/.ansible/tmp/ansible-tmp-1771589788.3058138-8251-264430494073827/AnsiballZ_helm.py\", line 47, in invoke_module\r\n    runpy.run_module(mod_name='ansible_collections.kubernetes.core.plugins.modules.helm', init_globals=dict(_module_fqn='ansible_collections.kubernetes.core.plugins.modules.helm', _modlib_path=modlib_path),\r\n  File \"/usr/lib/python3.10/runpy.py\", line 224, in run_module\r\n    return _run_module_code(code, init_globals, run_name, mod_spec)\r\n  File \"/usr/lib/python3.10/runpy.py\", line 96, in _run_module_code\r\n    _run_code(code, mod_globals, init_globals,\r\n  File \"/usr/lib/python3.10/runpy.py\", line 86, in _run_code\r\n    exec(code, run_globals)\r\n  File \"/tmp/ansible_kubernetes.core.helm_payload_4o9x4798/ansible_kubernetes.core.helm_payload.zip/ansible_collections/kubernetes/core/plugins/modules/helm.py\", line 986, in <module>\r\n  File \"/tmp/ansible_kubernetes.core.helm_payload_4o9x4798/ansible_kubernetes.core.helm_payload.zip/ansible_collections/kubernetes/core/plugins/modules/helm.py\", line 796, in main\r\n  File \"/tmp/ansible_kubernetes.core.helm_payload_4o9x4798/ansible_kubernetes.core.helm_payload.zip/ansible_collections/kubernetes/core/plugins/modules/helm.py\", line 451, in get_release_status\r\n  File \"/tmp/ansible_kubernetes.core.helm_payload_4o9x4798/ansible_kubernetes.core.helm_payload.zip/ansible_collections/kubernetes/core/plugins/module_utils/helm.py\", line 167, in run_helm_command\r\n  File \"/tmp/ansible_kubernetes.core.helm_payload_4o9x4798/ansible_kubernetes.core.helm_payload.zip/ansible_collections/kubernetes/core/plugins/module_utils/helm.py\", line 160, in env_update\r\n  File \"/tmp/ansible_kubernetes.core.helm_payload_4o9x4798/ansible_kubernetes.core.helm_payload.zip/ansible_collections/kubernetes/core/plugins/module_utils/helm.py\", line 118, in _prepare_helm_environment\r\nFileNotFoundError: [Errno 2] No such file or directory: '/root/.kube/config'\r\n", "msg": "MODULE FAILURE\nSee stdout/stderr for the exact error", "rc": 1}
+2026-02-20 12:16:28,942 p=7993 u=nour n=ansible | PLAY RECAP **********************************************************************************************************************************************
+2026-02-20 12:16:28,943 p=7993 u=nour n=ansible | k8s-master-01              : ok=4    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2026-02-20 12:17:21,877 p=8469 u=nour n=ansible | PLAY [Install RabbitMQ Operator] ************************************************************************************************************************
+2026-02-20 12:17:21,885 p=8469 u=nour n=ansible | TASK [Download Helm] ************************************************************************************************************************************
+2026-02-20 12:17:23,241 p=8469 u=nour n=ansible | [WARNING]: Platform linux on host k8s-master-01 is using the discovered Python interpreter at /usr/bin/python3.10, but future installation of another
+Python interpreter could change the meaning of that path. See https://docs.ansible.com/ansible-core/2.17/reference_appendices/interpreter_discovery.html
+for more information.
+
+2026-02-20 12:17:23,241 p=8469 u=nour n=ansible | ok: [k8s-master-01]
+2026-02-20 12:17:23,243 p=8469 u=nour n=ansible | TASK [Extract Helm] *************************************************************************************************************************************
+2026-02-20 12:17:24,934 p=8469 u=nour n=ansible | ok: [k8s-master-01]
+2026-02-20 12:17:24,937 p=8469 u=nour n=ansible | TASK [Move Helm binary] *********************************************************************************************************************************
+2026-02-20 12:17:25,576 p=8469 u=nour n=ansible | ok: [k8s-master-01]
+2026-02-20 12:17:25,579 p=8469 u=nour n=ansible | TASK [Add Bitnami Helm repo] ****************************************************************************************************************************
+2026-02-20 12:17:26,153 p=8469 u=nour n=ansible | ok: [k8s-master-01]
+2026-02-20 12:17:26,157 p=8469 u=nour n=ansible | TASK [Install RabbitMQ Cluster Operator] ****************************************************************************************************************
+2026-02-20 12:17:44,336 p=8469 u=nour n=ansible | changed: [k8s-master-01]
+2026-02-20 12:17:44,337 p=8469 u=nour n=ansible | PLAY RECAP **********************************************************************************************************************************************
+2026-02-20 12:17:44,337 p=8469 u=nour n=ansible | k8s-master-01              : ok=5    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2026-02-20 12:34:09,504 p=9186 u=nour n=ansible | PLAY [Deploy and Test 3-Node RabbitMQ Cluster] **********************************************************************************************************
+2026-02-20 12:34:09,542 p=9186 u=nour n=ansible | TASK [Deploy RabbitMQ Cluster (3 Replicas)] *************************************************************************************************************
+2026-02-20 12:34:12,792 p=9186 u=nour n=ansible | [WARNING]: Platform linux on host k8s-master-01 is using the discovered Python interpreter at /usr/bin/python3.10, but future installation of another
+Python interpreter could change the meaning of that path. See https://docs.ansible.com/ansible-core/2.17/reference_appendices/interpreter_discovery.html
+for more information.
+
+2026-02-20 12:34:12,792 p=9186 u=nour n=ansible | changed: [k8s-master-01]
+2026-02-20 12:34:12,812 p=9186 u=nour n=ansible | TASK [Wait for all 3 RabbitMQ pods to be ready (This takes a few minutes)] ******************************************************************************
+2026-02-20 12:34:13,511 p=9186 u=nour n=ansible | fatal: [k8s-master-01]: FAILED! => {"changed": true, "cmd": ["kubectl", "wait", "--for=condition=ready", "pod", "-l", "app.kubernetes.io/name=my-rabbitmq", "-n", "default", "--timeout=300s"], "delta": "0:00:00.165512", "end": "2026-02-20 12:34:13.470839", "msg": "non-zero return code", "rc": 1, "start": "2026-02-20 12:34:13.305327", "stderr": "error: no matching resources found", "stderr_lines": ["error: no matching resources found"], "stdout": "", "stdout_lines": []}
+2026-02-20 12:34:13,512 p=9186 u=nour n=ansible | PLAY RECAP **********************************************************************************************************************************************
+2026-02-20 12:34:13,512 p=9186 u=nour n=ansible | k8s-master-01              : ok=1    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2026-02-20 12:47:09,426 p=9600 u=nour n=ansible | ERROR! We were unable to read either as JSON nor YAML, these are the errors we got from each:
+JSON: Expecting value: line 1 column 1 (char 0)
+
+Syntax Error while loading YAML.
+  mapping values are not allowed in this context. mapping values are not allowed in this context
+  in "<unicode string>", line 26, column 18
+
+The error appears to be in '/home/nour/rabbitmq-k8s/deploy-rabbit-cluster.yml': line 26, column 18, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+    - name: Wait for RabbitMQ pods to be created and become ready
+          command: kubectl wait --for=condition=ready pod -l app.kubernetes.io/name=my-rabbitmq -n default --timeout=300s
+                 ^ here
+
+2026-02-20 12:50:21,684 p=9668 u=nour n=ansible | PLAY [Deploy and Test 3-Node RabbitMQ Cluster] **********************************************************************************************************
+2026-02-20 12:50:21,692 p=9668 u=nour n=ansible | TASK [Deploy RabbitMQ Cluster (3 Replicas)] *************************************************************************************************************
+2026-02-20 12:50:23,872 p=9668 u=nour n=ansible | [WARNING]: Platform linux on host k8s-master-01 is using the discovered Python interpreter at /usr/bin/python3.10, but future installation of another
+Python interpreter could change the meaning of that path. See https://docs.ansible.com/ansible-core/2.17/reference_appendices/interpreter_discovery.html
+for more information.
+
+2026-02-20 12:50:23,873 p=9668 u=nour n=ansible | ok: [k8s-master-01]
+2026-02-20 12:50:23,892 p=9668 u=nour n=ansible | TASK [Pause for 20 seconds to let the Operator create the pods] *****************************************************************************************
+2026-02-20 12:50:23,909 p=9668 u=nour n=ansible | Pausing for 20 seconds
+2026-02-20 12:50:23,910 p=9668 u=nour n=ansible | (ctrl+C then 'C' = continue early, ctrl+C then 'A' = abort)
+2026-02-20 12:50:43,915 p=9668 u=nour n=ansible | ok: [k8s-master-01]
+2026-02-20 12:50:43,918 p=9668 u=nour n=ansible | TASK [Wait for all 3 RabbitMQ pods to be ready] *********************************************************************************************************
+2026-02-20 12:50:44,487 p=9668 u=nour n=ansible | fatal: [k8s-master-01]: FAILED! => {"changed": true, "cmd": ["kubectl", "wait", "--for=condition=ready", "pod", "-l", "app.kubernetes.io/name=my-rabbitmq", "-n", "default", "--timeout=300s"], "delta": "0:00:00.100390", "end": "2026-02-20 12:50:44.448457", "msg": "non-zero return code", "rc": 1, "start": "2026-02-20 12:50:44.348067", "stderr": "error: no matching resources found", "stderr_lines": ["error: no matching resources found"], "stdout": "", "stdout_lines": []}
+2026-02-20 12:50:44,488 p=9668 u=nour n=ansible | PLAY RECAP **********************************************************************************************************************************************
+2026-02-20 12:50:44,488 p=9668 u=nour n=ansible | k8s-master-01              : ok=2    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2026-02-20 12:57:52,585 p=9982 u=nour n=ansible | PLAY [Deploy and Test 3-Node RabbitMQ Cluster] **********************************************************************************************************
+2026-02-20 12:57:52,596 p=9982 u=nour n=ansible | TASK [Deploy RabbitMQ Cluster (3 Replicas)] *************************************************************************************************************
+2026-02-20 12:57:54,704 p=9982 u=nour n=ansible | [WARNING]: Platform linux on host k8s-master-01 is using the discovered Python interpreter at /usr/bin/python3.10, but future installation of another
+Python interpreter could change the meaning of that path. See https://docs.ansible.com/ansible-core/2.17/reference_appendices/interpreter_discovery.html
+for more information.
+
+2026-02-20 12:57:54,704 p=9982 u=nour n=ansible | ok: [k8s-master-01]
+2026-02-20 12:57:54,707 p=9982 u=nour n=ansible | TASK [Pause for 20 seconds to let the Operator create the pods] *****************************************************************************************
+2026-02-20 12:57:54,730 p=9982 u=nour n=ansible | Pausing for 20 seconds
+2026-02-20 12:57:54,731 p=9982 u=nour n=ansible | (ctrl+C then 'C' = continue early, ctrl+C then 'A' = abort)
+2026-02-20 12:58:14,737 p=9982 u=nour n=ansible | ok: [k8s-master-01]
+2026-02-20 12:58:14,740 p=9982 u=nour n=ansible | TASK [Wait for RabbitMQ Cluster to be fully ready] ******************************************************************************************************
+2026-02-20 13:03:15,333 p=9982 u=nour n=ansible | fatal: [k8s-master-01]: FAILED! => {"changed": true, "cmd": ["kubectl", "wait", "--for=condition=AllReplicasReady", "rabbitmqcluster/my-rabbitmq", "-n", "default", "--timeout=300s"], "delta": "0:05:00.119233", "end": "2026-02-20 13:03:15.276357", "msg": "non-zero return code", "rc": 1, "start": "2026-02-20 12:58:15.157124", "stderr": "error: timed out waiting for the condition on rabbitmqclusters/my-rabbitmq", "stderr_lines": ["error: timed out waiting for the condition on rabbitmqclusters/my-rabbitmq"], "stdout": "", "stdout_lines": []}
+2026-02-20 13:03:15,338 p=9982 u=nour n=ansible | PLAY RECAP **********************************************************************************************************************************************
+2026-02-20 13:03:15,338 p=9982 u=nour n=ansible | k8s-master-01              : ok=2    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2026-02-20 13:10:40,306 p=10407 u=nour n=ansible | PLAY [Deploy 3-Node RabbitMQ Cluster (Direct Helm Method)] **********************************************************************************************
+2026-02-20 13:10:40,316 p=10407 u=nour n=ansible | TASK [Deploy 3-Node RabbitMQ directly via Helm] *********************************************************************************************************
+2026-02-20 13:15:56,898 p=10407 u=nour n=ansible | [WARNING]: Platform linux on host k8s-master-01 is using the discovered Python interpreter at /usr/bin/python3.10, but future installation of another
+Python interpreter could change the meaning of that path. See https://docs.ansible.com/ansible-core/2.17/reference_appendices/interpreter_discovery.html
+for more information.
+
+2026-02-20 13:15:56,898 p=10407 u=nour n=ansible | fatal: [k8s-master-01]: FAILED! => {"ansible_facts": {"discovered_interpreter_python": "/usr/bin/python3.10"}, "changed": false, "command": "/usr/local/bin/helm upgrade -i --reset-values --wait --timeout 5m -f=/tmp/tmp3fs5npoy.yml my-rabbitmq 'bitnami/rabbitmq'", "msg": "Failure when executing Helm command. Exited 1.\nstdout: Release \"my-rabbitmq\" does not exist. Installing it now.\n\nstderr: Error: client rate limiter Wait returned an error: context deadline exceeded\n", "stderr": "Error: client rate limiter Wait returned an error: context deadline exceeded\n", "stderr_lines": ["Error: client rate limiter Wait returned an error: context deadline exceeded"], "stdout": "Release \"my-rabbitmq\" does not exist. Installing it now.\n", "stdout_lines": ["Release \"my-rabbitmq\" does not exist. Installing it now."]}
+2026-02-20 13:15:56,900 p=10407 u=nour n=ansible | PLAY RECAP **********************************************************************************************************************************************
+2026-02-20 13:15:56,900 p=10407 u=nour n=ansible | k8s-master-01              : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2026-02-20 13:22:42,203 p=11260 u=nour n=ansible | PLAY [Deploy 3-Node RabbitMQ Cluster (Direct Helm Method)] **********************************************************************************************
+2026-02-20 13:22:42,238 p=11260 u=nour n=ansible | TASK [Create RabbitMQ namespace] ************************************************************************************************************************
+2026-02-20 13:22:45,369 p=11260 u=nour n=ansible | [WARNING]: Platform linux on host k8s-master-01 is using the discovered Python interpreter at /usr/bin/python3.10, but future installation of another
+Python interpreter could change the meaning of that path. See https://docs.ansible.com/ansible-core/2.17/reference_appendices/interpreter_discovery.html
+for more information.
+
+2026-02-20 13:22:45,369 p=11260 u=nour n=ansible | changed: [k8s-master-01]
+2026-02-20 13:22:45,372 p=11260 u=nour n=ansible | TASK [Deploy RabbitMQ cluster] **************************************************************************************************************************
+2026-02-20 13:22:46,301 p=11260 u=nour n=ansible | changed: [k8s-master-01]
+2026-02-20 13:22:46,302 p=11260 u=nour n=ansible | PLAY RECAP **********************************************************************************************************************************************
+2026-02-20 13:22:46,302 p=11260 u=nour n=ansible | k8s-master-01              : ok=2    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2026-02-20 13:25:57,307 p=11771 u=nour n=ansible | PLAY [Deploy 3-Node RabbitMQ Cluster (Direct Helm Method)] **********************************************************************************************
+2026-02-20 13:25:57,343 p=11771 u=nour n=ansible | TASK [Create RabbitMQ namespace] ************************************************************************************************************************
+2026-02-20 13:25:59,352 p=11771 u=nour n=ansible | [WARNING]: Platform linux on host k8s-master-01 is using the discovered Python interpreter at /usr/bin/python3.10, but future installation of another
+Python interpreter could change the meaning of that path. See https://docs.ansible.com/ansible-core/2.17/reference_appendices/interpreter_discovery.html
+for more information.
+
+2026-02-20 13:25:59,352 p=11771 u=nour n=ansible | ok: [k8s-master-01]
+2026-02-20 13:25:59,354 p=11771 u=nour n=ansible | TASK [Deploy RabbitMQ cluster] **************************************************************************************************************************
+2026-02-20 13:26:00,156 p=11771 u=nour n=ansible | An exception occurred during task execution. To see the full traceback, use -vvv. The error was: ansible_collections.kubernetes.core.plugins.module_utils.k8s.exceptions.CoreException: Failed to load resource definition: [Errno 2] No such file or directory: 'rabbitmq-cluster.yml'
+2026-02-20 13:26:00,157 p=11771 u=nour n=ansible | fatal: [k8s-master-01]: FAILED! => {"changed": false, "msg": "Failed to load resource definition: [Errno 2] No such file or directory: 'rabbitmq-cluster.yml'"}
+2026-02-20 13:26:00,157 p=11771 u=nour n=ansible | PLAY RECAP **********************************************************************************************************************************************
+2026-02-20 13:26:00,157 p=11771 u=nour n=ansible | k8s-master-01              : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2026-02-20 13:28:22,743 p=12006 u=nour n=ansible | PLAY [Deploy 3-Node RabbitMQ Cluster (Direct Helm Method)] **********************************************************************************************
+2026-02-20 13:28:22,778 p=12006 u=nour n=ansible | TASK [Create RabbitMQ namespace] ************************************************************************************************************************
+2026-02-20 13:28:23,079 p=12006 u=nour n=ansible | fatal: [localhost]: FAILED! => {"changed": false, "module_stderr": "sudo: a password is required\n", "module_stdout": "", "msg": "MODULE FAILURE\nSee stdout/stderr for the exact error", "rc": 1}
+2026-02-20 13:28:23,080 p=12006 u=nour n=ansible | PLAY RECAP **********************************************************************************************************************************************
+2026-02-20 13:28:23,081 p=12006 u=nour n=ansible | localhost                  : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2026-02-20 13:31:47,265 p=12118 u=nour n=ansible | PLAY [Deploy 3-Node RabbitMQ Cluster (Direct Helm Method)] **********************************************************************************************
+2026-02-20 13:31:47,301 p=12118 u=nour n=ansible | TASK [Create RabbitMQ namespace] ************************************************************************************************************************
+2026-02-20 13:31:49,282 p=12118 u=nour n=ansible | [WARNING]: Platform linux on host k8s-master-01 is using the discovered Python interpreter at /usr/bin/python3.10, but future installation of another
+Python interpreter could change the meaning of that path. See https://docs.ansible.com/ansible-core/2.17/reference_appendices/interpreter_discovery.html
+for more information.
+
+2026-02-20 13:31:49,288 p=12118 u=nour n=ansible | ok: [k8s-master-01]
+2026-02-20 13:31:49,291 p=12118 u=nour n=ansible | TASK [Deploy RabbitMQ cluster] **************************************************************************************************************************
+2026-02-20 13:31:50,177 p=12118 u=nour n=ansible | ok: [k8s-master-01]
+2026-02-20 13:31:50,178 p=12118 u=nour n=ansible | PLAY RECAP **********************************************************************************************************************************************
+2026-02-20 13:31:50,178 p=12118 u=nour n=ansible | k8s-master-01              : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2026-02-20 20:51:52,480 p=4881 u=nour n=ansible | PLAY [Install RabbitMQ Operator] *******************************************************************************************************************************************************
+2026-02-20 20:51:52,547 p=4881 u=nour n=ansible | TASK [Download Helm] *******************************************************************************************************************************************************************
+2026-02-20 20:52:00,433 p=4881 u=nour n=ansible | [WARNING]: Platform linux on host k8s-master-01 is using the discovered Python interpreter at /usr/bin/python3.10, but future installation of another Python interpreter could change
+the meaning of that path. See https://docs.ansible.com/ansible-core/2.17/reference_appendices/interpreter_discovery.html for more information.
+
+2026-02-20 20:52:00,433 p=4881 u=nour n=ansible | changed: [k8s-master-01]
+2026-02-20 20:52:00,442 p=4881 u=nour n=ansible | TASK [Extract Helm] ********************************************************************************************************************************************************************
+2026-02-20 20:52:03,128 p=4881 u=nour n=ansible | changed: [k8s-master-01]
+2026-02-20 20:52:03,157 p=4881 u=nour n=ansible | TASK [Move Helm binary] ****************************************************************************************************************************************************************
+2026-02-20 20:52:04,357 p=4881 u=nour n=ansible | ok: [k8s-master-01]
+2026-02-20 20:52:04,395 p=4881 u=nour n=ansible | TASK [Add Bitnami Helm repo] ***********************************************************************************************************************************************************
+2026-02-20 20:52:05,184 p=4881 u=nour n=ansible | ok: [k8s-master-01]
+2026-02-20 20:52:05,190 p=4881 u=nour n=ansible | TASK [Install RabbitMQ Cluster Operator] ***********************************************************************************************************************************************
+2026-02-20 20:52:28,753 p=4881 u=nour n=ansible | [WARNING]: The default idempotency check can fail to report changes in certain cases. Install helm diff >= 3.4.1 for better results.
+
+2026-02-20 20:52:28,753 p=4881 u=nour n=ansible | changed: [k8s-master-01]
+2026-02-20 20:52:28,754 p=4881 u=nour n=ansible | PLAY RECAP *****************************************************************************************************************************************************************************
+2026-02-20 20:52:28,754 p=4881 u=nour n=ansible | k8s-master-01              : ok=5    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2026-02-20 20:54:48,716 p=6759 u=nour n=ansible | PLAY [Deploy 3-Node RabbitMQ Cluster (Direct Helm Method)] *****************************************************************************************************************************
+2026-02-20 20:54:48,761 p=6759 u=nour n=ansible | TASK [Create RabbitMQ namespace] *******************************************************************************************************************************************************
+2026-02-20 20:54:51,843 p=6759 u=nour n=ansible | [WARNING]: Platform linux on host k8s-master-01 is using the discovered Python interpreter at /usr/bin/python3.10, but future installation of another Python interpreter could change
+the meaning of that path. See https://docs.ansible.com/ansible-core/2.17/reference_appendices/interpreter_discovery.html for more information.
+
+2026-02-20 20:54:51,843 p=6759 u=nour n=ansible | ok: [k8s-master-01]
+2026-02-20 20:54:51,845 p=6759 u=nour n=ansible | TASK [Deploy RabbitMQ cluster] *********************************************************************************************************************************************************
+2026-02-20 20:54:52,779 p=6759 u=nour n=ansible | ok: [k8s-master-01]
+2026-02-20 20:54:52,780 p=6759 u=nour n=ansible | PLAY RECAP *****************************************************************************************************************************************************************************
+2026-02-20 20:54:52,780 p=6759 u=nour n=ansible | k8s-master-01              : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2026-02-20 21:11:01,964 p=7927 u=nour n=ansible | PLAY [Deploy 3-Node RabbitMQ Cluster (Direct Helm Method)] *****************************************************************************************************************************
+2026-02-20 21:11:02,002 p=7927 u=nour n=ansible | TASK [Create RabbitMQ namespace] *******************************************************************************************************************************************************
+2026-02-20 21:11:04,012 p=7927 u=nour n=ansible | [WARNING]: Platform linux on host k8s-master-01 is using the discovered Python interpreter at /usr/bin/python3.10, but future installation of another Python interpreter could change
+the meaning of that path. See https://docs.ansible.com/ansible-core/2.17/reference_appendices/interpreter_discovery.html for more information.
+
+2026-02-20 21:11:04,012 p=7927 u=nour n=ansible | ok: [k8s-master-01]
+2026-02-20 21:11:04,015 p=7927 u=nour n=ansible | TASK [Deploy RabbitMQ cluster] *********************************************************************************************************************************************************
+2026-02-20 21:11:04,909 p=7927 u=nour n=ansible | changed: [k8s-master-01]
+2026-02-20 21:11:04,910 p=7927 u=nour n=ansible | PLAY RECAP *****************************************************************************************************************************************************************************
+2026-02-20 21:11:04,910 p=7927 u=nour n=ansible | k8s-master-01              : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2026-02-20 21:15:44,225 p=8734 u=nour n=ansible | PLAY [Deploy 3-Node RabbitMQ Cluster (Direct Helm Method)] *****************************************************************************************************************************
+2026-02-20 21:15:44,266 p=8734 u=nour n=ansible | TASK [Create RabbitMQ namespace] *******************************************************************************************************************************************************
+2026-02-20 21:15:46,328 p=8734 u=nour n=ansible | [WARNING]: Platform linux on host k8s-master-01 is using the discovered Python interpreter at /usr/bin/python3.10, but future installation of another Python interpreter could change
+the meaning of that path. See https://docs.ansible.com/ansible-core/2.17/reference_appendices/interpreter_discovery.html for more information.
+
+2026-02-20 21:15:46,329 p=8734 u=nour n=ansible | ok: [k8s-master-01]
+2026-02-20 21:15:46,331 p=8734 u=nour n=ansible | TASK [Deploy RabbitMQ cluster] *********************************************************************************************************************************************************
+2026-02-20 21:15:47,264 p=8734 u=nour n=ansible | changed: [k8s-master-01]
+2026-02-20 21:15:47,266 p=8734 u=nour n=ansible | PLAY RECAP *****************************************************************************************************************************************************************************
+2026-02-20 21:15:47,269 p=8734 u=nour n=ansible | k8s-master-01              : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2026-02-20 21:23:02,776 p=9545 u=nour n=ansible | PLAY [Deploy 3-Node RabbitMQ Cluster (Direct Helm Method)] *********************************************************
+2026-02-20 21:23:02,811 p=9545 u=nour n=ansible | TASK [Create RabbitMQ namespace] ***********************************************************************************
+2026-02-20 21:23:05,026 p=9545 u=nour n=ansible | [WARNING]: Platform linux on host k8s-master-01 is using the discovered Python interpreter at /usr/bin/python3.10,
+but future installation of another Python interpreter could change the meaning of that path. See
+https://docs.ansible.com/ansible-core/2.17/reference_appendices/interpreter_discovery.html for more information.
+
+2026-02-20 21:23:05,027 p=9545 u=nour n=ansible | ok: [k8s-master-01]
+2026-02-20 21:23:05,030 p=9545 u=nour n=ansible | TASK [Deploy RabbitMQ cluster] *************************************************************************************
+2026-02-20 21:23:05,957 p=9545 u=nour n=ansible | ok: [k8s-master-01]
+2026-02-20 21:23:05,959 p=9545 u=nour n=ansible | PLAY RECAP *********************************************************************************************************
+2026-02-20 21:23:05,959 p=9545 u=nour n=ansible | k8s-master-01              : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2026-02-20 21:36:38,794 p=10695 u=nour n=ansible | PLAY [Deploy 3-Node RabbitMQ Cluster (Direct Helm Method)] *********************************************************
+2026-02-20 21:36:38,831 p=10695 u=nour n=ansible | TASK [Create RabbitMQ namespace] ***********************************************************************************
+2026-02-20 21:36:40,913 p=10695 u=nour n=ansible | [WARNING]: Platform linux on host k8s-master-01 is using the discovered Python interpreter at /usr/bin/python3.10,
+but future installation of another Python interpreter could change the meaning of that path. See
+https://docs.ansible.com/ansible-core/2.17/reference_appendices/interpreter_discovery.html for more information.
+
+2026-02-20 21:36:40,913 p=10695 u=nour n=ansible | ok: [k8s-master-01]
+2026-02-20 21:36:40,916 p=10695 u=nour n=ansible | TASK [Deploy RabbitMQ cluster] *************************************************************************************
+2026-02-20 21:36:41,817 p=10695 u=nour n=ansible | changed: [k8s-master-01]
+2026-02-20 21:36:41,819 p=10695 u=nour n=ansible | PLAY RECAP *********************************************************************************************************
+2026-02-20 21:36:41,819 p=10695 u=nour n=ansible | k8s-master-01              : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2026-02-20 21:39:51,880 p=11628 u=nour n=ansible | ERROR! A playbook must be a list of plays, got a <class 'ansible.parsing.yaml.objects.AnsibleMapping'> instead: /home/nour/rabbitmq-k8s/deploy-rabbit-cluster.yml
+
+The error appears to be in '/home/nour/rabbitmq-k8s/deploy-rabbit-cluster.yml': line 1, column 1, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+
+definition:
+^ here
+
+2026-02-20 21:40:38,435 p=11682 u=nour n=ansible | ERROR! conflicting action statements: kubernetes.core.k8s, definition
+
+The error appears to be in '/home/nour/rabbitmq-k8s/deploy-rabbit-cluster.yml': line 16, column 7, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+
+    - name: Deploy RabbitMQ cluster
+      ^ here
+
+2026-02-20 21:41:08,790 p=11716 u=nour n=ansible | PLAY [Deploy 3-Node RabbitMQ Cluster (Direct Helm Method)] *********************************************************
+2026-02-20 21:41:08,832 p=11716 u=nour n=ansible | TASK [Create RabbitMQ namespace] ***********************************************************************************
+2026-02-20 21:41:11,554 p=11716 u=nour n=ansible | [WARNING]: Platform linux on host k8s-master-01 is using the discovered Python interpreter at /usr/bin/python3.10,
+but future installation of another Python interpreter could change the meaning of that path. See
+https://docs.ansible.com/ansible-core/2.17/reference_appendices/interpreter_discovery.html for more information.
+
+2026-02-20 21:41:11,556 p=11716 u=nour n=ansible | ok: [k8s-master-01]
+2026-02-20 21:41:11,564 p=11716 u=nour n=ansible | TASK [Deploy RabbitMQ cluster] *************************************************************************************
+2026-02-20 21:41:12,774 p=11716 u=nour n=ansible | changed: [k8s-master-01]
+2026-02-20 21:41:12,777 p=11716 u=nour n=ansible | PLAY RECAP *********************************************************************************************************
+2026-02-20 21:41:12,781 p=11716 u=nour n=ansible | k8s-master-01              : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2026-02-20 21:41:54,969 p=12298 u=nour n=ansible | PLAY [Deploy 3-Node RabbitMQ Cluster (Direct Helm Method)] *********************************************************
+2026-02-20 21:41:55,009 p=12298 u=nour n=ansible | TASK [Create RabbitMQ namespace] ***********************************************************************************
+2026-02-20 21:41:56,258 p=12298 u=nour n=ansible | [WARNING]: Platform linux on host k8s-master-01 is using the discovered Python interpreter at /usr/bin/python3.10,
+but future installation of another Python interpreter could change the meaning of that path. See
+https://docs.ansible.com/ansible-core/2.17/reference_appendices/interpreter_discovery.html for more information.
+
+2026-02-20 21:41:56,258 p=12298 u=nour n=ansible | ok: [k8s-master-01]
+2026-02-20 21:41:56,260 p=12298 u=nour n=ansible | TASK [Deploy RabbitMQ cluster] *************************************************************************************
+2026-02-20 21:41:57,222 p=12298 u=nour n=ansible | changed: [k8s-master-01]
+2026-02-20 21:41:57,223 p=12298 u=nour n=ansible | PLAY RECAP *********************************************************************************************************
+2026-02-20 21:41:57,223 p=12298 u=nour n=ansible | k8s-master-01              : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2026-02-20 21:46:59,365 p=13557 u=nour n=ansible | PLAY [Deploy 3-Node RabbitMQ Cluster (Direct Helm Method)] *********************************************************************
+2026-02-20 21:46:59,400 p=13557 u=nour n=ansible | TASK [Create RabbitMQ namespace] ***********************************************************************************************
+2026-02-20 21:47:01,544 p=13557 u=nour n=ansible | [WARNING]: Platform linux on host k8s-master-01 is using the discovered Python interpreter at /usr/bin/python3.10, but future
+installation of another Python interpreter could change the meaning of that path. See https://docs.ansible.com/ansible-
+core/2.17/reference_appendices/interpreter_discovery.html for more information.
+
+2026-02-20 21:47:01,545 p=13557 u=nour n=ansible | ok: [k8s-master-01]
+2026-02-20 21:47:01,547 p=13557 u=nour n=ansible | TASK [Deploy RabbitMQ cluster] *************************************************************************************************
+2026-02-20 21:47:02,481 p=13557 u=nour n=ansible | changed: [k8s-master-01]
+2026-02-20 21:47:02,487 p=13557 u=nour n=ansible | PLAY RECAP *********************************************************************************************************************
+2026-02-20 21:47:02,487 p=13557 u=nour n=ansible | k8s-master-01              : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2026-02-20 21:51:17,426 p=14651 u=nour n=ansible | PLAY [Deploy 3-Node RabbitMQ Cluster (Direct Helm Method)] **************************************************************************
+2026-02-20 21:51:17,464 p=14651 u=nour n=ansible | TASK [Create RabbitMQ namespace] ****************************************************************************************************
+2026-02-20 21:51:19,543 p=14651 u=nour n=ansible | [WARNING]: Platform linux on host k8s-master-01 is using the discovered Python interpreter at /usr/bin/python3.10, but future
+installation of another Python interpreter could change the meaning of that path. See https://docs.ansible.com/ansible-
+core/2.17/reference_appendices/interpreter_discovery.html for more information.
+
+2026-02-20 21:51:19,544 p=14651 u=nour n=ansible | ok: [k8s-master-01]
+2026-02-20 21:51:19,546 p=14651 u=nour n=ansible | TASK [Deploy RabbitMQ cluster] ******************************************************************************************************
+2026-02-20 21:51:20,467 p=14651 u=nour n=ansible | changed: [k8s-master-01]
+2026-02-20 21:51:20,469 p=14651 u=nour n=ansible | PLAY RECAP **************************************************************************************************************************
+2026-02-20 21:51:20,469 p=14651 u=nour n=ansible | k8s-master-01              : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2026-02-20 22:00:31,084 p=17025 u=nour n=ansible | PLAY [Deploy 3-Node RabbitMQ Cluster (Direct Helm Method)] **************************************************************************
+2026-02-20 22:00:31,121 p=17025 u=nour n=ansible | TASK [Create RabbitMQ namespace] ****************************************************************************************************
+2026-02-20 22:00:33,204 p=17025 u=nour n=ansible | [WARNING]: Platform linux on host k8s-master-01 is using the discovered Python interpreter at /usr/bin/python3.10, but future
+installation of another Python interpreter could change the meaning of that path. See https://docs.ansible.com/ansible-
+core/2.17/reference_appendices/interpreter_discovery.html for more information.
+
+2026-02-20 22:00:33,204 p=17025 u=nour n=ansible | ok: [k8s-master-01]
+2026-02-20 22:00:33,206 p=17025 u=nour n=ansible | TASK [Deploy RabbitMQ cluster] ******************************************************************************************************
+2026-02-20 22:00:34,131 p=17025 u=nour n=ansible | changed: [k8s-master-01]
+2026-02-20 22:00:34,138 p=17025 u=nour n=ansible | PLAY RECAP **************************************************************************************************************************
+2026-02-20 22:00:34,139 p=17025 u=nour n=ansible | k8s-master-01              : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
