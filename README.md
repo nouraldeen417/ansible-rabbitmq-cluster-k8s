@@ -22,7 +22,7 @@ Since new servers only support password-based SSH access, this step creates a de
 This allows secure first-time access to new machines.
 
 ---
-![alt text](<Screenshot 2026-02-21 011459.png>)
+![alt text](<screenshots/Screenshot 2026-02-21 011459.png>)
 ### 2️⃣ Created Automation Service Account
 
 A dedicated user (`ansible-admin`) was created on all nodes:
@@ -52,7 +52,7 @@ This separates human access from automation access.
 This ensures safe, non-interactive privilege escalation.
 
 ---
-![alt text](<Screenshot 2026-02-21 011747.png>)
+![alt text](<screenshots/Screenshot 2026-02-21 011747.png>)
 
 
 ---
@@ -206,7 +206,7 @@ Result:
 All worker nodes become part of the cluster.
 
 ---
-![alt text](image.png)
+![alt text](screenshots/image.png)
 # Execution Flow Summary
 
 ```
@@ -227,8 +227,8 @@ Join Worker Nodes
 Cluster Ready
 ```
 # verfication
-![alt text](<Screenshot 2026-02-17 132639.png>) 
+![alt text](<screenshots/Screenshot 2026-02-17 132639.png>) 
 
-![alt text](<Screenshot 2026-02-17 132710.png>) 
+![alt text](<screenshots/Screenshot 2026-02-17 132710.png>) 
 
-![alt text](<Screenshot 2026-02-21 003344.png>)
+![alt text](<screenshots/Screenshot 2026-02-21 003344.png>)
