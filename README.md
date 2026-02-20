@@ -53,10 +53,7 @@ This ensures safe, non-interactive privilege escalation.
 
 ---
 ![alt text](<Screenshot 2026-02-21 011747.png>)
-Perfect 👌
-I’ll write this as a **clean, professional, short architecture document** starting *after bootstrapping*, focused only on cluster preparation and initialization.
 
-No over-detailing. No YAML explanations. Just clear engineering flow.
 
 ---
 
@@ -231,5 +228,7 @@ Cluster Ready
 ```
 # verfication
 ![alt text](<Screenshot 2026-02-17 132639.png>) 
+
 ![alt text](<Screenshot 2026-02-17 132710.png>) 
+
 ![alt text](<Screenshot 2026-02-21 003344.png>)
