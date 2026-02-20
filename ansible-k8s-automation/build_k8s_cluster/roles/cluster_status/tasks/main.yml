@@ -1,0 +1,21 @@
+#SPDX-License-Identifier: MIT-0
+---
+- name: Gather cluster status
+  kubernetes.core.k8s_info:
+    kind: Node
+    kubeconfig: "/home/{{ HOME_USER }}/.kube/config"
+  register: nodes_list
+  when: inventory_hostname in groups['master-nodes']  # Only run on master nodes  
+
+- name: Gather system pods
+  kubernetes.core.k8s_info:
+    kind: Pod
+    kubeconfig: "/home/{{ HOME_USER }}/.kube/config"
+    namespace: kube-system
+  register: system_pods
+  when: inventory_hostname in groups['master-nodes']  # Only run on master nodes  
+
+# - debug:
+#     var: nodes_list
+# - debug:
+#     var: system_pods.resources

@@ -1,0 +1,18 @@
+#SPDX-License-Identifier: MIT-0
+---
+# tasks file for roles/k8s_admin
+- name: Create a .kube directory
+  ansible.builtin.file:
+    path: "/home/{{ HOME_USER }}/.kube"
+    state: directory
+    mode: '0755'
+
+- name: Copy file admin.conf to .kube directory
+  ansible.builtin.copy:
+    src: /etc/kubernetes/admin.conf
+    dest: "/home/{{ HOME_USER }}/.kube/config"
+    remote_src: yes  # Critical for remote-to-remote copy
+    owner: "{{ HOME_USER }}"
+    group: "{{ HOME_USER }}"
+    mode: '0644'
+

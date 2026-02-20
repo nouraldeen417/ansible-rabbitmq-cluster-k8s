@@ -1,0 +1,5 @@
+#SPDX-License-Identifier: MIT-0
+---
+# vars file for roles/cluster_init
+MASTER_IP: 192.168.57.3
+HOME_USER: "{{ ansible_user }}"     # existing username not root  or  {{ ansible_user }}

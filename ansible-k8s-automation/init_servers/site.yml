@@ -1,0 +1,33 @@
+---
+- name: Initial server setup for Ansible
+  hosts: new_servers
+  gather_facts: false
+  vars:
+    local_ssh_pub_key: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
+  vars_files:
+    - passwords.yml 
+  tasks:
+    - name: Check if we can connect using provided credentials
+      ping:
+      
+    - name: Create ansible user
+      user:
+        name: "{{ new_ansible_user }}"
+        groups: sudo
+        append: yes
+        shell: /bin/bash
+        state: present
+        
+    - name: Set authorized key for ansible user
+      ansible.posix.authorized_key:
+        user: "{{ new_ansible_user }}"
+        state: present
+        key: "{{ local_ssh_pub_key }}"
+        
+    - name: Allow passwordless sudo for ansible user
+      copy:
+        dest: "/etc/sudoers.d/99-{{ new_ansible_user }}"
+        content: "{{ new_ansible_user }} ALL=(ALL) NOPASSWD:ALL"
+        mode: 0440
+        validate: 'visudo -cf %s'
+          
