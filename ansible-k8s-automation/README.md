@@ -1,11 +1,6 @@
 # ⚙️ Kubernetes Cluster Management with Ansible (Build, Upgrade, Remove)
 
-This project automates the provisioning and lifecycle management of a Kubernetes cluster using **Ansible** and `kubeadm`. It supports:
-- 🧱 Automatically preparing `/etc/hosts` on each node for name resolution
-- ✅ Building a new HA Kubernetes cluster with container runtime and networking
-- 🔁 Performing rolling, zero-downtime upgrades (via `serial`)
-- ❌ Safely removing the cluster from all nodes
-
+This project automates the provisioning and lifecycle management of a Kubernetes cluster using **Ansible** and `kubeadm`. 
 
 ---
 

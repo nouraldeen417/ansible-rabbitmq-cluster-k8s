@@ -5,15 +5,13 @@
       command: swapoff -a
       become: yes
       ignore_errors: yes  # In case no swap exists
-      args:
-        creates: /home/{{ ansible_user }}/ansible_swap_OFF  # Idempotency
 
     - name: Create ansible_swap_OFF  file
       ansible.builtin.file:
         path: /home/{{ ansible_user }}/ansible_swap_OFF
         state: touch          
 
-    - name: Remove ALL swap entries from fstab (bulletproof)
+    - name: Remove ALL swap entries from fstab 
       ansible.builtin.replace:
         path: /etc/fstab
         regexp: '^.*(swap|SWAP).*$'
