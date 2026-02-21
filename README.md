@@ -232,3 +232,155 @@ Cluster Ready
 ![alt text](<screenshots/Screenshot 2026-02-17 132710.png>) 
 
 ![alt text](<screenshots/Screenshot 2026-02-21 003344.png>)
+
+# Stage 5 – RabbitMQ Operator Installation
+
+## Objective
+Install the RabbitMQ Cluster Operator using Helm to enable Kubernetes-native management of RabbitMQ clusters.
+
+The operator manages:
+
+- Stateful deployment  
+- Configuration reconciliation  
+- Self-healing  
+- Scaling operations  
+
+---
+
+## Helm Installation
+Helm is installed directly on the control plane node:
+
+- Download Helm binary  
+- Extract archive  
+- Move binary to `/usr/local/bin`  
+
+**Purpose:**  
+Helm is required to install the RabbitMQ Operator chart from Bitnami.
+
+---
+
+## Add Bitnami Repository
+The Bitnami Helm repository is added:
+
+```
+
+[https://charts.bitnami.com/bitnami](https://charts.bitnami.com/bitnami)
+
+```
+
+**Why:**  
+The RabbitMQ Cluster Operator chart is maintained and distributed via Bitnami.
+
+---
+
+
+**Result:**  
+Kubernetes is now capable of managing RabbitmqCluster custom resources (CRDs).  
+The operator continuously watches cluster definitions and enforces the desired state.
+
+---
+
+# Stage 6 – RabbitMQ Cluster Deployment
+
+## Objective
+Deploy a highly available RabbitMQ cluster using the installed operator.
+
+---
+
+## Namespace Creation
+Namespace created: `rabbitmq`
+
+**Purpose:**  
+Isolate messaging infrastructure from system components.
+
+---
+
+## RabbitMQ Custom Resource Deployment
+A `RabbitmqCluster` resource is applied.
+
+**Key specifications:**
+
+- Replicas: 2 nodes  
+- Image: `bitnamilegacy/rabbitmq:4.1.3-debian-12-r1`  
+- Service Type: NodePort  
+- Persistent Storage: 10Gi  
+- StorageClass: local-path  
+- Resource Limits: Defined CPU and memory boundaries  
+
+---
+
+## Architecture Behavior
+When the custom resource is applied, the operator detects the new RabbitmqCluster and creates:
+
+- StatefulSet  
+- Services  
+- PersistentVolumeClaims  
+- ConfigMaps  
+- Secrets  
+- Configures clustering between replicas  
+- Exposes RabbitMQ via NodePort  
+
+**Result:**  
+RabbitMQ runs as a stateful, replicated message broker cluster inside Kubernetes.
+
+---
+
+## Stateful Architecture
+RabbitMQ is deployed using:
+
+- StatefulSet  
+- Persistent Volumes  
+- Clustered Erlang distribution  
+
+**Each pod:**
+
+- Has stable network identity  
+- Retains persistent data  
+- Automatically rejoins cluster after restart  
+
+---
+
+## Execution Flow Summary
+
+```
+
+Kubernetes Cluster Ready
+↓
+Install Helm
+↓
+Add Bitnami Repository
+↓
+Install RabbitMQ Operator
+↓
+Create Messaging Namespace
+↓
+Deploy RabbitmqCluster CR
+↓
+Operator Creates StatefulSet
+↓
+RabbitMQ Cluster Operational
+
+```
+
+---
+
+## Operational Validation
+
+Cluster health can be verified by checking:
+
+- Operator pods running in `rabbitmq-system`  
+- RabbitMQ pods running in `rabbitmq`  
+- StatefulSet replicas ready  
+- Services exposed via NodePort  
+- PersistentVolumeClaims bound  
+
+When all pods are **Running** and **Ready**, the RabbitMQ cluster is fully operational.
+```
+
+```
+# verfication
+![alt text](<screenshots/rabbit-pods.png>) 
+![alt text](<screenshots/rabbit-svc.png>) 
+![alt text](<screenshots/rabbit-verfication.png>)
+
+ 
