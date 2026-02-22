@@ -1,16 +1,13 @@
 #                Automated Kubernetes Cluster Building and RabbitMQ Deployment using Ansible
 ---
 
-<h1 align="center">Team Members</h1>
+<h1 >🚀 Team Members</h1>
 
-<div align="center">
+### **1️⃣ Sherif Ashraf**  
+### **2️⃣ Youssef Mohamed**  
+### **3️⃣ Nour Aldeen**
 
-<b>1. Sherif Ashraf</b><br>
-<b>2. Youssef Mohamed</b><br>
-<b>3. Nour Aldeen</b>
-
-</div>
-
+---
 # Overview
 
 This project focuses on automating the provisioning of a Kubernetes cluster using Ansible, followed by deploying a highly available RabbitMQ cluster using Helm and the RabbitMQ Cluster Operator.
