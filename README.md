@@ -1,10 +1,14 @@
 #                Automated Kubernetes Cluster Building and RabbitMQ Deployment using Ansible
 ---
-# Team Members
-##               Sherif Ashraf
-##               Youssef Mohamed
-##               Nour Aldeen
+<h1 align="center">🚀 Team Members</h1>
 
+<div align="center">
+
+### **1️⃣ Sherif Ashraf**  
+### **2️⃣ Youssef Mohamed**  
+### **3️⃣ Nour Aldeen**
+
+</div>
 ---
 # Overview
 
